@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auto-Correct — Next-Gen Vehicle Inspection</title>
 <!-- Clean font stack: Syne for display, DM Sans for body, DM Mono only for timestamps -->
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.disabled-public-demo.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- jsPDF for real PDF generation -->
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -44,7 +44,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 body::after{content:'';position:fixed;top:-30%;left:50%;transform:translateX(-50%);width:80vw;height:60vh;background:radial-gradient(ellipse,var(--glow) 0%,transparent 70%);pointer-events:none;z-index:0}
 .layer{position:relative;z-index:1}
 
-/* ── TYPOGRAPHY TEXT STYLES ── */
+/* ── TYPOGRAPHY TOKENS ── */
 .t-display{font-family:var(--f-display);font-weight:800;letter-spacing:-0.5px}
 .t-mono{font-family:var(--f-mono)}
 .t-label{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
@@ -245,9 +245,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 .map-overlay-title .big{font-family:var(--f-display);font-size:12px;font-weight:800;color:var(--text);line-height:1.1}.map-overlay-title .small{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:.8px;text-transform:uppercase}
 .map-legend{position:absolute;right:12px;bottom:12px;z-index:650;display:flex;gap:6px;flex-wrap:wrap;background:rgba(8,12,20,.82);border:1px solid var(--border);border-radius:10px;padding:7px 9px;backdrop-filter:blur(12px);box-shadow:0 10px 28px rgba(0,0,0,.18)}
 .map-legend span{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.3px}.map-legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:-1px}
-.ai-map-marker{position:relative;width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:rgba(5,16,13,.92);border:2px solid var(--marker-color,#fc8181);box-shadow:0 0 0 6px var(--marker-soft,rgba(252,129,129,.10)),0 0 24px var(--marker-soft,rgba(252,129,129,.22));transform:translate(-17px,-17px);transition:transform .18s ease,box-shadow .18s ease}
-.ai-map-marker:hover{transform:translate(-17px,-17px) scale(1.12);box-shadow:0 0 0 9px var(--marker-soft,rgba(252,129,129,.14)),0 0 32px var(--marker-soft,rgba(252,129,129,.35))}
-.ai-map-marker::after{content:'';position:absolute;inset:-7px;border-radius:999px;border:1px solid var(--marker-color,#fc8181);opacity:.42;animation:mapPulseLive 2.4s ease-out infinite}.ai-map-marker .pin-load{font-family:var(--f-display);font-size:10px;font-weight:800;color:var(--marker-color,#fc8181);line-height:1}.ai-map-marker .pin-label{position:absolute;top:39px;left:50%;transform:translateX(-50%);padding:2px 6px;border-radius:6px;background:rgba(8,12,20,.82);border:1px solid rgba(255,255,255,.07);color:var(--text);font-size:9px;font-weight:700;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.ai-map-marker{position:relative;width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:rgba(5,16,13,.92);border:2px solid var(--marker-color,#fc8181);box-shadow:0 0 0 6px var(--marker-soft,rgba(252,129,129,.10)),0 0 24px var(--marker-soft,rgba(252,129,129,.22));transform:translate(-22px,-22px);transition:transform .18s ease,box-shadow .18s ease}
+.ai-map-marker:hover{transform:translate(-22px,-22px) scale(1.10);box-shadow:0 0 0 9px var(--marker-soft,rgba(252,129,129,.14)),0 0 32px var(--marker-soft,rgba(252,129,129,.35))}
+.ai-map-marker::after{content:'';position:absolute;inset:-7px;border-radius:999px;border:1px solid var(--marker-color,#fc8181);opacity:.42;animation:mapPulseLive 2.4s ease-out infinite}.ai-map-marker .pin-load{font-family:var(--f-display);font-size:11px;font-weight:800;color:var(--marker-color,#fc8181);line-height:1;letter-spacing:-.55px;max-width:38px;white-space:nowrap;text-align:center;overflow:hidden;text-shadow:0 1px 8px rgba(0,0,0,.35)}.ai-map-marker .pin-label{position:absolute;top:49px;left:50%;transform:translateX(-50%);padding:3px 7px;border-radius:7px;background:rgba(8,12,20,.86);border:1px solid rgba(255,255,255,.08);color:var(--text);font-size:9px;font-weight:800;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.22)}
 .city-map-marker{position:relative;min-width:86px;height:46px;border-radius:13px;background:rgba(8,12,20,.88);border:1.5px solid var(--marker-color,#fc8181);display:grid;grid-template-columns:11px 1fr;align-items:center;column-gap:8px;padding:6px 10px;box-shadow:0 0 0 5px var(--marker-soft,rgba(252,129,129,.08)),0 14px 28px rgba(0,0,0,.24);transform:translate(-43px,-23px);transition:transform .18s ease,box-shadow .18s ease;backdrop-filter:blur(10px)}
 .city-map-marker:hover{transform:translate(-43px,-23px) scale(1.08);box-shadow:0 0 0 8px var(--marker-soft,rgba(252,129,129,.12)),0 18px 34px rgba(0,0,0,.32)}.city-map-marker .city-dot{width:10px;height:10px;border-radius:50%;background:var(--marker-color,#fc8181);box-shadow:0 0 14px var(--marker-color,#fc8181);flex-shrink:0}.city-map-marker .city-text{display:flex;flex-direction:column;gap:2px;min-width:0}.city-map-marker .city-name{display:block;font-size:10px;font-weight:800;color:var(--text);line-height:1.05;white-space:nowrap}.city-map-marker .city-load{display:block;font-family:var(--f-mono);font-size:9px;font-weight:800;color:var(--marker-color,#fc8181);line-height:1.05;white-space:nowrap}
 .map-popup-title{font-family:var(--f-display);font-size:13px;font-weight:800;color:var(--text);margin-bottom:6px}.map-popup-row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(148,163,184,.12);padding-top:5px;margin-top:5px}.map-popup-row span:first-child{color:var(--muted)}.map-popup-row span:last-child{font-weight:800;color:var(--accent2);font-family:var(--f-mono)}
@@ -312,7 +312,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--dim);border-radius:2px}
 footer{padding:11px 22px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:500;color:var(--muted);transition:border-color .3s}
 .fr{display:flex;gap:14px}
-@media(max-width:1100px){.g5{grid-template-columns:repeat(3,1fr)}.g2a,.g2b,.g2c,.g3{grid-template-columns:1fr}}
+@media(max-width:1100px){.g5{grid-template-columns:repeat(3,1fr)}.g2a,.g2b,.g2c,.g3{grid-template-columns:1fr}.sim-forecast-summary{grid-template-columns:1fr 1fr}.sim-forecast-card.main{grid-column:1/-1}}
 
 
 /* ── TURKA LIGHT MODE BRAND REFINEMENT ── */
@@ -422,12 +422,37 @@ footer{padding:11px 22px;border-top:1px solid var(--border);display:flex;justify
 .sim-insight .h{font-size:12px;font-weight:800;color:var(--text);margin-bottom:2px}
 .sim-insight .p{font-size:11px;color:var(--text2);line-height:1.5}
 .sim-summary{font-size:11px;color:var(--text2);line-height:1.55;padding:10px 12px;border-radius:9px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.14);margin-bottom:12px}
+.sim-chart-help{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:11px}
+.sim-help-card{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:10px 11px;min-height:74px}
+.sim-help-card .h{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.sim-help-card .p{font-size:11px;color:var(--text2);line-height:1.48}
+.sim-hour-table{margin-top:10px;border:1px solid var(--border);border-radius:9px;overflow:hidden}
+.sim-hour-row{display:grid;grid-template-columns:64px 1fr 1fr 1fr;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid rgba(100,116,139,.12);font-size:11px}
+.sim-hour-row:last-child{border-bottom:none}
+.sim-hour-row.head{background:rgba(252,129,129,.07);font-size:9px;font-weight:800;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.sim-hour-row .bad{color:var(--danger);font-weight:800}.sim-hour-row .good{color:var(--success);font-weight:800}
+.sim-formula-box{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.sim-formula{background:rgba(16,185,129,.055);border:1px solid rgba(16,185,129,.16);border-radius:9px;padding:10px 11px;font-size:11px;color:var(--text2);line-height:1.55}
+.sim-formula strong{color:var(--text)}
+.sim-chart-note{font-size:10px;color:var(--muted);line-height:1.45;margin-top:7px}
+.sim-forecast-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 11px}
+.sim-forecast-select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 10px;font-family:var(--f-body);font-size:12px;font-weight:700;outline:none;min-width:145px;cursor:pointer;transition:var(--tr)}
+.sim-forecast-select:hover,.sim-forecast-select:focus{border-color:rgba(252,129,129,.42);box-shadow:0 0 0 3px rgba(252,129,129,.06)}
+.sim-forecast-summary{display:grid;grid-template-columns:1.08fr repeat(4,.72fr);gap:8px;margin:10px 0 11px}
+.sim-forecast-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 12px;min-height:76px;position:relative;overflow:hidden}
+.sim-forecast-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--fc,var(--accent));opacity:.9}
+.sim-forecast-card .k{font-size:9px;font-weight:800;color:var(--muted);letter-spacing:1.1px;text-transform:uppercase;margin-bottom:5px}
+.sim-forecast-card .v{font-family:var(--f-display);font-size:21px;font-weight:800;line-height:1.1;color:var(--fc,var(--text))}
+.sim-forecast-card .d{font-size:10px;color:var(--text2);line-height:1.35;margin-top:5px}
+.sim-forecast-card.main .v{font-size:18px;color:var(--text);line-height:1.25}
+.sim-forecast-card.main strong{color:var(--fc,var(--accent2))}
 .sim-chart-panel canvas{margin-top:3px}
+[data-theme="light"] .sim-forecast-select,[data-theme="light"] .sim-forecast-card{background:#fffafa;border-color:#f6c7c7}
 [data-theme="light"] .sim-hero{background:linear-gradient(135deg,rgba(185,28,28,.08),rgba(59,130,246,.05))}
 [data-theme="light"] .sim-control-card,[data-theme="light"] .sim-kpi,[data-theme="light"] .sim-flow-card,[data-theme="light"] .sim-insight{background:#fffafa;border-color:#f6c7c7}
 [data-theme="light"] .sim-summary{background:rgba(185,28,28,.045);border-color:rgba(185,28,28,.12)}
 @media(max-width:1100px){.sim-layout{grid-template-columns:1fr}.sim-control-grid{grid-template-columns:repeat(2,1fr)}.sim-flow-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:720px){.sim-hero{flex-direction:column;align-items:flex-start}.sim-control-grid,.sim-kpis,.sim-flow-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.sim-hero{flex-direction:column;align-items:flex-start}.sim-control-grid,.sim-kpis,.sim-flow-grid,.sim-chart-help,.sim-formula-box{grid-template-columns:1fr}.sim-hour-row{grid-template-columns:54px 1fr 1fr 1fr}}
 
 </style>
 </head>
@@ -542,9 +567,9 @@ footer{padding:11px 22px;border-top:1px solid var(--border);display:flex;justify
     <div id="userAIBanner" style="background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
       <div style="width:32px;height:32px;background:rgba(251,113,133,0.15);border:1px solid rgba(251,113,133,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">✦</div>
       <div id="userAIText" style="font-size:12px;color:#94a3b8;line-height:1.6;flex:1">
-        <span style="color:#fb7185;font-weight:700">${currentLang==='en'?'Local AI analysing…':'Local AI analiz ediyor…'}</span> İstasyon verileri işleniyor.
+        <span style="color:#fb7185;font-weight:700">${currentLang==='en'?'AI analysing…':'AI analiz ediyor…'}</span> İstasyon verileri işleniyor.
       </div>
-      <div style="font-size:9px;font-weight:600;color:#fb7185;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0;letter-spacing:1px" id="userAISource">LOCAL AI</div>
+      <div style="font-size:9px;font-weight:600;color:#fb7185;background:rgba(251,113,133,0.1);border:1px solid rgba(251,113,133,0.2);border-radius:4px;padding:2px 7px;flex-shrink:0;letter-spacing:1px" id="userAISource">AI</div>
     </div>
 
     <!-- İstasyon kartları grid -->
@@ -926,8 +951,23 @@ footer{padding:11px 22px;border-top:1px solid var(--border);display:flex;justify
 
   <div class="sim-layout">
     <div class="panel sim-chart-panel">
-      <div class="ph"><span class="pt" data-i18n="sim_chart_title">24 Saatlik Bekleme Simülasyonu</span><span class="pb" data-i18n="sim_chart_badge">Manuel vs AI</span></div>
-      <canvas id="sChart" height="220"></canvas>
+      <div class="ph"><span class="pt" data-i18n="sim_chart_title">İstasyon Yoğunluk Tahmini</span><span class="pb" data-i18n="sim_chart_badge">KISA VADE</span></div>
+      <div class="sim-forecast-toolbar">
+        <select class="sim-forecast-select" id="simForecastCity" onchange="populateSimForecastStations();renderSimForecast();"></select>
+        <select class="sim-forecast-select" id="simForecastStation" onchange="renderSimForecast();"></select>
+        <select class="sim-forecast-select" id="simForecastHorizon" onchange="renderSimForecast();">
+          <option value="1">1 saat sonra</option>
+          <option value="2" selected>2 saat sonra</option>
+          <option value="3">3 saat sonra</option>
+          <option value="4">4 saat sonra</option>
+        </select>
+        <button class="btn btn-a" onclick="renderSimForecast(true)" id="simForecastBtn">✦ Tahmini Güncelle</button>
+      </div>
+      <div class="sim-forecast-summary" id="simForecastSummary"></div>
+      <canvas id="sChart" height="230"></canvas>
+      <div class="sim-chart-note" id="simForecastNote" data-i18n="sim_chart_note">Bu grafik, seçilen şehir ve istasyon için önümüzdeki saatlerde beklenen yeni araç gelişini, doluluğu ve bekleme süresini gösterir.</div>
+      <div class="sim-chart-help" id="simChartHelp"></div>
+      <div class="sim-hour-table" id="simHourTable"></div>
     </div>
     <div class="panel">
       <div class="ph"><span class="pt" data-i18n="sim_ai_plan_title">AI Aksiyon Planı</span><span class="pb pbo">SMART OPS</span></div>
@@ -1021,7 +1061,7 @@ footer{padding:11px 22px;border-top:1px solid var(--border);display:flex;justify
     <!-- AI analysis box -->
     <div id="cityAIBox" style="margin-top:12px"></div>
     <div style="margin-top:10px;display:flex;gap:8px">
-      <button class="btn btn-a" id="cityAIBtn" onclick="analyzeCityWithAI()">✦ Local AI Şehir Analizi</button>
+      <button class="btn btn-a" id="cityAIBtn" onclick="analyzeCityWithAI()">✦ AI Şehir Analizi</button>
       <button class="btn btn-e" id="cityReportBtn" onclick="exportCityReport()">⬇ Şehir Raporu</button>
     </div>
   </div>
@@ -1051,32 +1091,13 @@ footer{padding:11px 22px;border-top:1px solid var(--border);display:flex;justify
 
 <script>
 // ══════════════════════════════════════════
-// CONFIG — PUBLIC DEMO MODE / NO PRIVATE VALUES
+// PUBLIC DEMO CONFIG — NO EXTERNAL AI SECRET
 // ══════════════════════════════════════════
 
-const PUBLIC_DEMO_MODE = true;
-const LOCAL_AI_LABEL = 'LOCAL AI';
-
-async function callAIEngine(prompt, maxChars = 900, temperature = 0.4) {
-  const isEN = typeof currentLang !== 'undefined' && currentLang === 'en';
-  const cityMatch = prompt.match(/city of ([^\n(]+)/i) || prompt.match(/platformunun analiz motorusun\. ([^ ]+) şehrini/i);
-  const cityName = cityMatch ? cityMatch[1].trim() : (isEN ? 'selected region' : 'seçili bölge');
-  if (isEN) {
-    return `SUMMARY: ${cityName} is operating with a balanced but monitorable inspection load. Capacity pressure is evaluated through waiting vehicles, active service count and station density.
-REC_1: Queue balancing | Redirect new appointments from high-density stations to nearby lower-density stations to reduce waiting by 12-18%.
-REC_2: Staff allocation | Add 2-4 flexible technicians during peak hours and prioritise stations with high waiting counts.
-REC_3: EV lane planning | Keep a dedicated EV safety lane active where EV share is above the city average.
-REC_4: Appointment smoothing | Move a portion of flexible appointments to low-demand time bands to reduce peak pressure.
-RISK: If waiting vehicles rise for two consecutive refresh cycles, customer waiting time may exceed the target band.
-IMPACT: Expected improvement is 10-20% lower waiting time and smoother station utilisation.`;
-  }
-  return `ÖZET: ${cityName} bölgesinde operasyon genel olarak izlenebilir seviyede ilerliyor. Değerlendirme bekleyen araç, muayenedeki araç ve istasyon yoğunluğu birlikte okunarak yapılmalıdır.
-ÖNERİ_1: Kuyruk dengeleme | Yoğun istasyonlara gelen yeni randevular yakın ve daha düşük yoğunluklu istasyonlara yönlendirilirse bekleme %12-18 azalabilir.
-ÖNERİ_2: Personel planlama | Pik saatlerde yüksek bekleyen araç sayısı olan istasyonlara 2-4 esnek teknisyen desteği verilmeli.
-ÖNERİ_3: EV hat yönetimi | EV oranı şehir ortalamasının üzerindeyse ayrı EV güvenlik hattı aktif tutulmalı.
-ÖNERİ_4: Randevu yumuşatma | Esnek randevuların bir kısmı düşük talep saatlerine kaydırılarak pik saat baskısı azaltılmalı.
-RİSK: Bekleyen araç sayısı iki güncelleme döngüsü üst üste artarsa bekleme süresi hedef bandın üzerine çıkabilir.
-ETKİ: Uygulama sonrası bekleme süresinde %10-20 iyileşme ve daha dengeli istasyon kullanımı beklenir.`;
+const PUBLIC_DEMO_AI = true;
+async function callAIServiceDemo(prompt, maxTokens = 1000, temperature = 0.4) {
+  // Public GitHub version: analysis is generated locally so no secret is exposed in the browser.
+  throw new Error('External AI service disabled in public demo build');
 }
 
 // ══════════════════════════════════════════
@@ -1324,9 +1345,9 @@ Tavsiyeni şu formatta ver: TAVSIYE: [metin]`;
 
   try {
     const resp = await fetch(
-      'data:application/json,{}',
+      `about:blank`,
       { method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ contents:[{ parts:[{ text: prompt }] }], generationConfig:{ temperature:0.5, maxOutputLength:200 } })
+        body: JSON.stringify({ contents:[{ parts:[{ text: prompt }] }], generationConfig:{ temperature:0.5, maxOutputTokens:200 } })
       }
     );
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
@@ -1334,8 +1355,8 @@ Tavsiyeni şu formatta ver: TAVSIYE: [metin]`;
     const raw  = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
     const text = raw.includes('TAVSIYE:') ? raw.split('TAVSIYE:')[1].trim() : raw.trim();
     if (text) {
-      bannerText.innerHTML = `<span style="color:#fb7185;font-weight:700">✦ Local AI Tavsiyesi:</span> ${text}`;
-      bannerSrc.textContent = 'LOCAL AI';
+      bannerText.innerHTML = `<span style="color:#fb7185;font-weight:700">✦ AI Tavsiyesi:</span> ${text}`;
+      bannerSrc.textContent = 'AI';
       return;
     }
     throw new Error('empty');
@@ -1680,7 +1701,7 @@ const i18n = {
     userWelcome: 'Merhaba! 👋',
     userWelcomeSub: 'AI destekli sistemimiz, <strong style="color:#e53e3e">şu an en az kuyruğa sahip</strong> muayene istasyonlarını analiz etti ve size en uygun seçenekleri hazırladı.',
     userAvgWaitLabel: 'Ort. Bekleme',
-    userAILoading: '<span style="color:#fb7185;font-weight:700">Local AI analiz ediyor…</span> İstasyon verileri işleniyor.',
+    userAILoading: '<span style="color:#fb7185;font-weight:700">AI analiz ediyor…</span> İstasyon verileri işleniyor.',
     sortLoad: 'Yüke Göre', sortWait: 'Beklemeye Göre', sortEV: 'EV Dostu',
     stationsTitle: '📍 Önerilen İstasyonlar',
     rank1:'🥇 En İyi Seçim', rank2:'🥈 İkinci Seçim', rank3:'🥉 Üçüncü Seçim',
@@ -1757,7 +1778,7 @@ const i18n = {
     sim_run_btn:'▶ Çalıştır', sim_reset_btn:'↺ Sıfırla', sim_ai_btn:'✦ AI Optimize', sim_export_btn:'⬇ Rapor Al', sim_pause_btn:'⏸ Duraklat',
     sim_manual_lbl:'MEVCUT AKIŞ', sim_optim_lbl:'AI ÖNERİSİ', sim_impr_lbl:'İYİLEŞME', sim_yearly_lbl:'YILLIK TASARRUF',
     sim_manual_sub:'Optimize edilmemiş ortalama bekleme', sim_optim_sub:'Önerilen hat/personel düzeni', sim_yearly_sub:'Tahmini operasyonel zaman kazanımı',
-    sim_util_lbl:'KAPASİTE KULLANIMI', sim_risk_lbl:'OPERASYON RİSKİ', sim_chart_title:'24 Saatlik Bekleme Simülasyonu', sim_chart_badge:'Manuel vs AI', sim_ai_plan_title:'AI Aksiyon Planı',
+    sim_util_lbl:'KAPASİTE KULLANIMI', sim_risk_lbl:'OPERASYON RİSKİ', sim_chart_title:'İstasyon Yoğunluk Tahmini', sim_chart_badge:'Kısa Vade', sim_chart_note:'Seçilen şehir ve istasyon için önümüzdeki saatlerde beklenen yeni araç gelişi, doluluk ve bekleme süresi tahmin edilir.', sim_ai_plan_title:'AI Aksiyon Planı',
     rep_page_title:'Rapor Merkezi — İndir & Analiz Et',
     rep_stat1:'Bugünkü Muayene', rep_stat2:'Sistem Uptime', rep_stat3:'Aktif Anomali',
     rep_available:'Mevcut Raporlar', rep_custom:'Özel Rapor Oluştur', rep_log:'İşlem Geçmişi',
@@ -1791,7 +1812,7 @@ const i18n = {
     userWelcome: 'Hello! 👋',
     userWelcomeSub: 'Our AI system has analysed <strong style="color:#e53e3e">the least congested</strong> inspection stations and prepared the best options for you.',
     userAvgWaitLabel: 'Avg. Wait',
-    userAILoading: '<span style="color:#fb7185;font-weight:700">Local AI analysing…</span> Processing station data.',
+    userAILoading: '<span style="color:#fb7185;font-weight:700">AI analysing…</span> Processing station data.',
     sortLoad: 'By Load', sortWait: 'By Wait', sortEV: 'EV Friendly',
     stationsTitle: '📍 Recommended Stations',
     rank1:'🥇 Best Choice', rank2:'🥈 Second Choice', rank3:'🥉 Third Choice',
@@ -1864,7 +1885,7 @@ const i18n = {
     sim_run_btn:'▶ Run', sim_reset_btn:'↺ Reset', sim_ai_btn:'✦ AI Optimise', sim_export_btn:'⬇ Get Report', sim_pause_btn:'⏸ Pause',
     sim_manual_lbl:'CURRENT FLOW', sim_optim_lbl:'AI PROPOSAL', sim_impr_lbl:'IMPROVEMENT', sim_yearly_lbl:'ANNUAL SAVINGS',
     sim_manual_sub:'Average wait without optimisation', sim_optim_sub:'Recommended lane/staff setup', sim_yearly_sub:'Estimated operational time saved',
-    sim_util_lbl:'CAPACITY UTILISATION', sim_risk_lbl:'OPERATION RISK', sim_chart_title:'24-Hour Wait Simulation', sim_chart_badge:'Manual vs AI', sim_ai_plan_title:'AI Action Plan',
+    sim_util_lbl:'CAPACITY UTILISATION', sim_risk_lbl:'OPERATION RISK', sim_chart_title:'Station Congestion Forecast', sim_chart_badge:'Short Term', sim_chart_note:'Forecasts expected occupancy, waiting vehicles, and wait time for the selected city and station.', sim_ai_plan_title:'AI Action Plan',
     rep_page_title:'Report Centre — Download & Analyse',
     rep_stat1:"Today's Inspections", rep_stat2:'System Uptime', rep_stat3:'Active Anomalies',
     rep_available:'Available Reports', rep_custom:'Create Custom Report', rep_log:'Activity Log',
@@ -1933,7 +1954,7 @@ function applyStaticLanguage(){
   const mapTitle=document.getElementById('mapPageTitle'); if(mapTitle) mapTitle.textContent=en?'Turkey Inspection Station Network — Select a City':'Türkiye Muayene İstasyon Ağı — Şehir Seçin';
   const back=document.getElementById('backTurkeyBtn'); if(back) back.textContent=en?'← Turkey':'← Türkiye';
   const cityTitle=document.getElementById('cityLeafletTitle'); if(cityTitle) cityTitle.textContent=en?'City Station Map':'Şehir İstasyon Haritası';
-  const aiBtn=document.getElementById('cityAIBtn'); if(aiBtn) aiBtn.textContent=en?'✦ Local AI City Analysis':'✦ Local AI Şehir Analizi';
+  const aiBtn=document.getElementById('cityAIBtn'); if(aiBtn) aiBtn.textContent=en?'✦ AI City Analysis':'✦ AI Şehir Analizi';
   const cityRep=document.getElementById('cityReportBtn'); if(cityRep) cityRep.textContent=en?'⬇ City Report':'⬇ Şehir Raporu';
 
   // Static report/sim badges are covered by data-i18n; keep percentage decimal style aligned
@@ -2415,9 +2436,9 @@ SADECE aşağıdaki formatta yanıt ver. Başka hiçbir şey yazma, açıklama e
 RİSK: [En kritik risk faktörü — 1 cümle, sayısal]
 ETKİ: [Önerilerin tamamı uygulandığında beklenen iyileşme — sayısal]`;
 
-  // ── Local AI API (birincil) ─────────────────
+  // ── AI API (birincil) ─────────────────
   try {
-    const url = 'data:application/json,{}';
+    const url = `about:blank`;
     const resp = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -2425,7 +2446,7 @@ ETKİ: [Önerilerin tamamı uygulandığında beklenen iyileşme — sayısal]`;
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.4,
-          maxOutputLength: 1200,
+          maxOutputTokens: 1200,
           candidateCount: 1
         },
         safetySettings: [
@@ -2439,22 +2460,22 @@ ETKİ: [Önerilerin tamamı uygulandığında beklenen iyileşme — sayısal]`;
 
     if (!resp.ok) {
       const err = await resp.json().catch(() => ({}));
-      throw new Error(`Local AI HTTP ${resp.status}: ${err?.error?.message || ''}`);
+      throw new Error(`AI HTTP ${resp.status}: ${err?.error?.message || ''}`);
     }
 
     const data = await resp.json();
     const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    if (!raw) throw new Error('Local AI empty response');
+    if (!raw) throw new Error('AI empty response');
 
     const parsed = parseAIResponse(raw);
     if (parsed && parsed.recommendations.length >= 2) {
-      console.log('✓ Local AI analizi başarılı');
-      return { ...parsed, source: 'Local AI' };
+      console.log('✓ AI analizi başarılı');
+      return { ...parsed, source: 'AI' };
     }
-    throw new Error('Local AI parse failed');
+    throw new Error('AI parse failed');
 
-  } catch(localAiErr) {
-    console.warn('Yerel AI denemesi başarısız, yerel analiz kullanılıyor:', localAiErr.message);
+  } catch(geminiErr) {
+    console.warn('AI başarısız, yerel analiz kullanılıyor:', geminiErr.message);
     const fallback = generateFallbackRecs(reportData);
     return { ...fallback, source: 'Yerel Analiz' };
   }
@@ -2507,10 +2528,10 @@ function buildAISectionHTML(ai) {
             <span style="font-size:16px">✦</span>
             <div>
               <div style="font-size:13px;font-weight:800;color:#e2e8f0">${currentLang==='en'?'AI Solutions & Recommendations':'AI Çözümleri & Önerileri'}</div>
-              <div style="font-size:9px;color:#64748b;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-top:1px">${ai.source === 'Local AI' ? '⚡ Local AI' : '⚙ Yerel Analiz Motoru'} — Dijital İkiz</div>
+              <div style="font-size:9px;color:#64748b;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-top:1px">${ai.source === 'AI' ? '⚡ Google AI' : '⚙ Yerel Analiz Motoru'} — Dijital İkiz</div>
             </div>
           </div>
-          <div style="background:rgba(251,113,133,0.15);border:1px solid rgba(251,113,133,0.3);border-radius:4px;padding:3px 9px;font-size:9px;font-weight:700;color:#fb7185;letter-spacing:1px">${ai.source === 'Local AI' ? 'LOCAL AI' : 'YEREL ANALİZ'}</div>
+          <div style="background:rgba(251,113,133,0.15);border:1px solid rgba(251,113,133,0.3);border-radius:4px;padding:3px 9px;font-size:9px;font-weight:700;color:#fb7185;letter-spacing:1px">${ai.source === 'AI' ? 'AI' : 'YEREL ANALİZ'}</div>
         </div>
         <div style="padding:0 16px">
           <!-- Summary -->
@@ -2617,7 +2638,7 @@ function showPDFLoader(show) {
         <div style="background:#0f1623;border:1px solid #1e2d44;border-radius:14px;padding:32px 40px;text-align:center;min-width:280px">
           <div style="font-size:28px;margin-bottom:16px;animation:spin 2s linear infinite;display:inline-block">✦</div>
           <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#e2e8f0;margin-bottom:6px">${currentLang==='en'?'Preparing Report':'Rapor Hazırlanıyor'}</div>
-          <div id="pdfLoaderMsg" style="font-size:12px;color:#64748b;margin-bottom:20px">Local AI verilerini analiz ediyor…</div>
+          <div id="pdfLoaderMsg" style="font-size:12px;color:#64748b;margin-bottom:20px">AI verilerini analiz ediyor…</div>
           <div style="width:200px;height:3px;background:#1e2d44;border-radius:2px;overflow:hidden;margin:0 auto">
             <div style="height:100%;background:linear-gradient(90deg,#fb7185,#e53e3e);border-radius:2px;animation:progress 3s ease-in-out infinite"></div>
           </div>
@@ -3021,7 +3042,7 @@ function openStModal(s) {
     </div>`);
 }
 
-// Local AI analizi modal içinde göster
+// AI analizi modal içinde göster
 async function runModalAI(stationId) {
   const s = findStationById(stationId);
   if (!s) return;
@@ -3038,7 +3059,7 @@ async function runModalAI(stationId) {
     <div style="margin:14px 0;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:10px;padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
         <div style="width:8px;height:8px;background:var(--accent4);border-radius:50%;animation:pdot 1.2s infinite ease-in-out"></div>
-        <span style="font-size:11px;font-weight:600;color:var(--accent4)">${currentLang==='en'?'Local AI analysing…':'Local AI analiz ediyor…'}</span>
+        <span style="font-size:11px;font-weight:600;color:var(--accent4)">${currentLang==='en'?'AI analysing…':'AI analiz ediyor…'}</span>
       </div>
       <div style="height:3px;background:var(--border);border-radius:2px;overflow:hidden">
         <div style="height:100%;background:linear-gradient(90deg,var(--accent4),var(--accent));border-radius:2px;animation:progress 2s ease-in-out infinite;width:60%"></div>
@@ -3059,7 +3080,7 @@ async function runModalAI(stationId) {
     box.innerHTML = `
       <div style="margin:14px 0;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:10px;overflow:hidden">
         <div style="background:rgba(251,113,133,0.12);padding:9px 13px;display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:11px;font-weight:700;color:var(--accent4)">✦ Local AI — ${s.id} Analizi</span>
+          <span style="font-size:11px;font-weight:700;color:var(--accent4)">✦ AI — ${s.id} Analizi</span>
           <span style="font-size:9px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 7px">${result.source || 'AI'}</span>
         </div>
         <div style="padding:10px 13px">
@@ -3185,25 +3206,194 @@ function resetSimOptButton(){
   aiBtn.style.borderColor = '';
   aiBtn.style.color = '';
 }
+function waitCurveFromRho(rho, ev=10, appointment=55){
+  let wait;
+  if(rho <= 0.62) wait = 3 + rho * 9;
+  else if(rho <= 0.90) wait = 9 + (rho - 0.62) * 42;
+  else if(rho <= 1.12) wait = 21 + (rho - 0.90) * 92;
+  else wait = 42 + Math.pow(rho - 1.12, 1.22) * 145;
+  wait += (ev/100)*2.2;
+  wait -= (appointment/100)*2.4;
+  return simClamp(wait, 3, 95);
+}
+function buildHourlySeries(sim, useOptim=false){
+  // 24 saatlik talep profili: gece düşük, sabah/öğlen/akşam pikleri belirgin.
+  const profile=[.10,.07,.05,.04,.06,.16,.34,.72,1.04,1.18,1.05,.96,1.12,1.28,1.20,1.05,1.10,1.22,.98,.68,.44,.30,.21,.15];
+  const sum=profile.reduce((a,b)=>a+b,0);
+  const capHour = useOptim ? sim.optim.capacityHour : sim.manual.capacityHour;
+  const effDur  = useOptim ? sim.optim.effectiveDuration : sim.manual.effectiveDuration;
+  let backlog=0;
+  return profile.map((m,h)=>{
+    const arr = sim.inp.volume * (m/sum);
+    const workingFactor = (h>=8 && h<=18) ? 1 : (h>=6 && h<8) || (h>18 && h<=21) ? .42 : .16;
+    const cap = Math.max(.1, capHour * workingFactor);
+    backlog = Math.max(0, backlog + arr - cap);
+    const rho = arr / cap;
+    const backlogWait = (backlog / Math.max(cap,1)) * Math.min(18, effDur*.45);
+    const v = simClamp(waitCurveFromRho(rho, sim.inp.ev, sim.inp.appointment) + backlogWait, 3, 95);
+    return {t:h, v, arr, cap, backlog, rho};
+  });
+}
 function initSD(){
   const sim = calcSimulation();
-  const peaks = [0.55,0.48,0.42,0.38,0.40,0.52,0.70,0.88,1.08,1.18,1.06,1.00,1.14,1.24,1.10,0.98,1.05,1.16,1.02,0.86,0.72,0.64,0.58,0.52];
-  sdM = peaks.map((m,i)=>({t:i, v:simClamp(sim.manual.wait*m + (Math.random()-.35)*3.5, 2, 160)}));
-  sdO = peaks.map((m,i)=>({t:i, v:simClamp(sim.optim.wait*(0.82+m*.18) + Math.random()*2, 2, 120)}));
+  sdM = buildHourlySeries(sim,false);
+  sdO = buildHourlySeries(sim,true).map(d=>({...d, v:simClamp(d.v*.78,3,80), backlog:Math.max(0, Math.round(d.backlog*.55))}));
+  populateSimForecastCities();
+  populateSimForecastStations();
   updateSimResults();
+  renderSimForecast();
+}
+function forecastDemandFactor(hour){
+  // Kısa vadeli istasyon talebi: iş saatlerinde pik, geç saatlerde de demo için düşük ama sıfır olmayan geliş.
+  // Böylece tahmin sadece mevcut kuyruğun erimesi değil, yeni müşteri trafiğini de hesaba katar.
+  if(hour>=7 && hour<10) return 1.24;   // sabah randevu piki
+  if(hour>=10 && hour<12) return 1.04;
+  if(hour>=12 && hour<14) return 1.30;   // öğle arası sıkışması
+  if(hour>=14 && hour<17) return 1.12;
+  if(hour>=17 && hour<19) return 1.36;   // iş çıkışı piki
+  if(hour>=19 && hour<21) return .88;
+  if(hour>=21 && hour<23) return .72;
+  return .58; // kapanış/gece demo akışı: düşük, ama yeni araç gelişini tamamen sıfırlamaz
+}
+function forecastRisk(load, waiting, wait){
+  if(load>=92 || waiting>=18 || wait>=30) return 'critical';
+  if(load>=75 || waiting>=9 || wait>=18) return 'high';
+  if(load>=55 || waiting>=4 || wait>=10) return 'medium';
+  return 'low';
+}
+function forecastRiskLabel(r){
+  const en=isEN();
+  return en ? {critical:'Critical',high:'High',medium:'Medium',low:'Normal'}[r] : {critical:'Kritik',high:'Yüksek',medium:'Orta',low:'Normal'}[r];
+}
+function forecastColorByRisk(r){
+  return r==='critical'?'var(--danger)':r==='high'?'var(--warn)':r==='medium'?'var(--accent3)':'var(--success)';
+}
+function getForecastCityName(){
+  const sel=simEl('simForecastCity');
+  const keys=typeof cityData!=='undefined'?Object.keys(cityData):[];
+  return sel?.value || overviewCity || keys[0] || 'İstanbul Anadolu';
+}
+function getForecastStation(cityName=getForecastCityName()){
+  const list=(cityData?.[cityName]?.stations||[]);
+  const sel=simEl('simForecastStation');
+  return list.find(s=>s.id===sel?.value) || list[0] || null;
+}
+function populateSimForecastCities(){
+  const sel=simEl('simForecastCity'); if(!sel || typeof cityData==='undefined') return;
+  const keep=sel.value || overviewCity || 'İstanbul Anadolu';
+  const opts=Object.keys(cityData).map(c=>`<option value="${c}">${c}</option>`).join('');
+  if(sel.innerHTML!==opts) sel.innerHTML=opts;
+  sel.value = cityData[keep] ? keep : Object.keys(cityData)[0];
+}
+function populateSimForecastStations(){
+  const cityName=getForecastCityName();
+  const sel=simEl('simForecastStation'); if(!sel || typeof cityData==='undefined') return;
+  const keep=sel.value;
+  const sts=(cityData[cityName]?.stations||[]);
+  sel.innerHTML=sts.map(s=>`<option value="${s.id}">${s.id}</option>`).join('');
+  sel.value = sts.some(s=>s.id===keep) ? keep : (sts[0]?.id||'');
+  const h=simEl('simForecastHorizon');
+  if(h){
+    const labels=isEN()?['in 1 hour','in 2 hours','in 3 hours','in 4 hours']:['1 saat sonra','2 saat sonra','3 saat sonra','4 saat sonra'];
+    [...h.options].forEach((o,i)=>o.textContent=labels[i]||o.textContent);
+  }
+  const btn=simEl('simForecastBtn'); if(btn) btn.textContent=isEN()?'✦ Refresh forecast':'✦ Tahmini Güncelle';
+}
+function forecastIncoming15(cityName, station, completion15, baseCapacity, inp, split, stepIndex, hour){
+  const cityStations=(cityData?.[cityName]?.stations||[]);
+  const avgCityLoad=cityStations.length ? cityStations.reduce((a,s)=>a+(stationVehicleSplit(s).load||0),0)/cityStations.length : 70;
+  const stationPressure=0.68 + (split.load/100)*0.36 + (avgCityLoad/100)*0.14;
+  const dailyScale=simClamp((Number(station?.total)||180)/220,.72,1.34);
+  const scenarioFactor=simClamp((inp.volume||500)/500,.72,1.55);
+  const evFactor=1+(Number(station?.ev)||0)/100*.05;
+  const wave=1 + Math.sin((stepIndex+1)*1.17 + String(station?.id||'').length*.41)*.08;
+  const randomLike=1 + (((String(cityName).length*7 + String(station?.id||'').length*11 + stepIndex*13)%9)-4)*.012;
+  const raw=completion15 * forecastDemandFactor(Math.floor(hour)) * stationPressure * dailyScale * scenarioFactor * evFactor * wave * randomLike;
+  return simClamp(raw, .8, Math.max(2, baseCapacity*.92));
+}
+function forecastStationSeries(cityName=getForecastCityName(), station=getForecastStation(cityName)){
+  const inp=getSimInputs();
+  if(!station) return [];
+  const now=new Date();
+  const horizon=simClamp(simNum('simForecastHorizon',2),1,4);
+  const steps=horizon*4;
+  const split=stationVehicleSplit(station);
+  const baseCapacity=Math.max(1,split.capacity);
+  const serviceMin=Math.max(18, inp.duration * (1 + (station.ev||0)/100*.18) * (1 - inp.appointment/100*.12));
+  const completion15=Math.max(.25, baseCapacity * (15/serviceMin) * .92);
+  let total=split.total;
+  let cumulativeArrivals=0;
+  let cumulativeCompleted=0;
+  const series=[];
+  for(let i=0;i<=steps;i++){
+    const d=new Date(now.getTime()+i*15*60000);
+    const hour=d.getHours()+d.getMinutes()/60;
+    let arrivals=0;
+    let completed=0;
+    if(i>0){
+      arrivals=forecastIncoming15(cityName, station, completion15, baseCapacity, inp, split, i, hour);
+      completed=Math.min(total+arrivals, completion15);
+      cumulativeArrivals += arrivals;
+      cumulativeCompleted += completed;
+      total=Math.max(0,total + arrivals - completed);
+    }
+    const maintenance=Math.min(baseCapacity,total);
+    const waiting=Math.max(0,total-maintenance);
+    const load=Math.round((maintenance/baseCapacity)*100);
+    const wait=waiting<=0 ? (maintenance>=baseCapacity?5:Math.max(1,Math.round(load/35))) : Math.round((AVG_SERVICE_MINUTES/2) + (waiting/baseCapacity)*AVG_SERVICE_MINUTES);
+    const risk=forecastRisk(load,waiting,wait);
+    const arrivalRateHour = i>0 ? arrivals*4 : forecastIncoming15(cityName, station, completion15, baseCapacity, inp, split, 1, hour)*4;
+    series.push({idx:i,time:`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`,hour,arrivals,completed,cumArrivals:cumulativeArrivals,cumCompleted:cumulativeCompleted,maintenance,waiting,load,wait,risk,total,arrivalRateHour});
+  }
+  return series;
+}
+function renderSimForecast(showToast=false){
+  populateSimForecastCities();
+  populateSimForecastStations();
+  drawS();
+  renderSimExtras(calcSimulation());
+  if(showToast) toast('info',isEN()?'Station forecast updated':'İstasyon tahmini güncellendi');
 }
 function drawS(){
   const c=document.getElementById('sChart');if(!c)return;
-  const W=c.offsetWidth||540,H=parseInt(c.getAttribute('height'))||220;c.width=W;c.height=H;
+  const cityName=getForecastCityName(), station=getForecastStation(cityName);
+  const data=forecastStationSeries(cityName,station);
+  const W=c.offsetWidth||540,H=parseInt(c.getAttribute('height'))||230;c.width=W;c.height=H;
   const ctx=c.getContext('2d');ctx.clearRect(0,0,W,H);
-  const p={l:38,r:14,t:16,b:24},cw=W-p.l-p.r,ch=H-p.t-p.b,n=sdM.length||24;
-  const rawMax=Math.max(40,...sdM.map(d=>d.v),...sdO.map(d=>d.v));
-  const max=Math.ceil(rawMax/20)*20;
-  [0,.25,.5,.75,1].forEach(q=>{const v=Math.round(max*q),y=p.t+ch-(v/max)*ch;ctx.beginPath();ctx.setLineDash([2,5]);ctx.strokeStyle=dark?'rgba(30,45,68,.85)':'rgba(200,215,230,.85)';ctx.lineWidth=1;ctx.moveTo(p.l,y);ctx.lineTo(W-p.r,y);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=dark?'rgba(100,116,139,.65)':'rgba(90,110,130,.85)';ctx.font='9px DM Sans';ctx.textAlign='right';ctx.fillText(v+(currentLang==='en'?'m':'dk'),p.l-4,y+3);});
-  const og=ctx.createLinearGradient(0,p.t,0,H-p.b);og.addColorStop(0,'rgba(16,185,129,.18)');og.addColorStop(1,'rgba(16,185,129,0)');ctx.fillStyle=og;ctx.beginPath();sdO.forEach((d,i)=>{const x=p.l+(cw/(n-1))*i,y=p.t+ch-(Math.min(d.v,max)/max)*ch;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.lineTo(W-p.r,H-p.b);ctx.lineTo(p.l,H-p.b);ctx.closePath();ctx.fill();
-  [[sdM,'#ef4444'],[sdO,'#10b981']].forEach(([data,col])=>{ctx.strokeStyle=col;ctx.lineWidth=2.2;ctx.setLineDash([]);ctx.beginPath();data.forEach((d,i)=>{const x=p.l+(cw/(n-1))*i,y=p.t+ch-(Math.min(d.v,max)/max)*ch;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();});
-  ctx.font='10px DM Sans';ctx.textAlign='left';ctx.fillStyle='#ef4444';ctx.fillRect(p.l,5,14,4);ctx.fillStyle=dark?'rgba(200,200,200,.78)':'rgba(60,80,100,.85)';ctx.fillText(currentLang==='en'?'Current flow':'Mevcut akış',p.l+19,10);ctx.fillStyle='#10b981';ctx.fillRect(p.l+115,5,14,4);ctx.fillStyle=dark?'rgba(200,200,200,.78)':'rgba(60,80,100,.85)';ctx.fillText(currentLang==='en'?'AI plan':'AI planı',p.l+134,10);
-  ctx.fillStyle=dark?'rgba(100,116,139,.75)':'rgba(80,100,120,.9)';ctx.font='8px DM Sans';ctx.textAlign='center';[0,6,12,18,23].forEach(i=>ctx.fillText(String(i).padStart(2,'0')+':00',p.l+(cw/(n-1))*i,H-4));
+  if(!station || !data.length){ctx.fillStyle='var(--muted)';ctx.font='12px DM Sans';ctx.fillText(isEN()?'No station selected':'İstasyon seçilmedi',20,30);return;}
+  const p={l:44,r:18,t:30,b:30},cw=W-p.l-p.r,ch=H-p.t-p.b,n=data.length;
+  const maxWait=Math.max(30,Math.ceil(Math.max(...data.map(d=>d.wait))/10)*10);
+  const maxArr=Math.max(1,...data.map(d=>d.arrivals));
+  const xAt=i=>p.l+(cw/(n-1))*i;
+  // Background risk bands: green / amber / red occupancy ranges
+  const bandY=v=>p.t+ch-(v/100)*ch;
+  ctx.fillStyle=dark?'rgba(34,197,94,.035)':'rgba(34,197,94,.055)';ctx.fillRect(p.l,bandY(55),cw,bandY(0)-bandY(55));
+  ctx.fillStyle=dark?'rgba(245,158,11,.045)':'rgba(245,158,11,.07)';ctx.fillRect(p.l,bandY(75),cw,bandY(55)-bandY(75));
+  ctx.fillStyle=dark?'rgba(239,68,68,.055)':'rgba(239,68,68,.07)';ctx.fillRect(p.l,p.t,cw,bandY(75)-p.t);
+  // Arrivals bars
+  data.forEach((d,i)=>{const x=xAt(i),bw=Math.max(7,cw/n*.48),bh=(d.arrivals/maxArr)*ch*.30;ctx.fillStyle=dark?'rgba(59,130,246,.20)':'rgba(37,99,235,.16)';ctx.fillRect(x-bw/2,H-p.b-bh,bw,bh);});
+  // grid + axis load percent
+  [0,.25,.5,.75,1].forEach(q=>{const v=Math.round(100*q),y=p.t+ch-q*ch;ctx.beginPath();ctx.setLineDash([2,5]);ctx.strokeStyle=dark?'rgba(30,45,68,.85)':'rgba(200,215,230,.85)';ctx.lineWidth=1;ctx.moveTo(p.l,y);ctx.lineTo(W-p.r,y);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=dark?'rgba(100,116,139,.70)':'rgba(90,110,130,.85)';ctx.font='9px DM Sans';ctx.textAlign='right';ctx.fillText('%'+v,p.l-5,y+3);});
+  // Occupancy line
+  ctx.strokeStyle='#ef4444';ctx.lineWidth=2.5;ctx.beginPath();data.forEach((d,i)=>{const x=xAt(i),y=p.t+ch-(Math.min(d.load,100)/100)*ch;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();
+  data.forEach((d,i)=>{if(i%2===0 || i===data.length-1){const x=xAt(i),y=p.t+ch-(Math.min(d.load,100)/100)*ch;ctx.beginPath();ctx.fillStyle=d.risk==='critical'?'#ef4444':d.risk==='high'?'#f59e0b':d.risk==='medium'?'#fb7185':'#22c55e';ctx.arc(x,y,3,0,Math.PI*2);ctx.fill();}});
+  // Wait line scaled against maxWait, dashed green
+  ctx.strokeStyle='#10b981';ctx.lineWidth=2;ctx.setLineDash([5,4]);ctx.beginPath();data.forEach((d,i)=>{const x=xAt(i),y=p.t+ch-(Math.min(d.wait,maxWait)/maxWait)*ch;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();ctx.setLineDash([]);
+  // Legend
+  ctx.font='10px DM Sans';ctx.textAlign='left';
+  ctx.fillStyle='#ef4444';ctx.fillRect(p.l,9,14,4);ctx.fillStyle=dark?'rgba(226,232,240,.80)':'rgba(45,55,72,.9)';ctx.fillText(isEN()?'Occupancy %':'Doluluk %',p.l+19,13);
+  ctx.fillStyle='#10b981';ctx.fillRect(p.l+105,9,14,4);ctx.fillStyle=dark?'rgba(226,232,240,.80)':'rgba(45,55,72,.9)';ctx.fillText(isEN()?'Wait min':'Bekleme dk',p.l+124,13);
+  ctx.fillStyle='rgba(59,130,246,.55)';ctx.fillRect(p.l+205,9,14,4);ctx.fillStyle=dark?'rgba(226,232,240,.80)':'rgba(45,55,72,.9)';ctx.fillText(isEN()?'New arrivals':'Yeni geliş',p.l+224,13);
+  // Axis labels
+  ctx.fillStyle=dark?'rgba(100,116,139,.75)':'rgba(80,100,120,.9)';ctx.font='8px DM Sans';ctx.textAlign='center';data.forEach((d,i)=>{if(i%2===0||i===data.length-1)ctx.fillText(d.time,xAt(i),H-6);});
+  ctx.save();ctx.translate(12,p.t+ch/2);ctx.rotate(-Math.PI/2);ctx.fillStyle=dark?'rgba(100,116,139,.75)':'rgba(80,100,120,.9)';ctx.font='9px DM Sans';ctx.textAlign='center';ctx.fillText(isEN()?'Occupancy / wait forecast':'Doluluk / bekleme tahmini',0,0);ctx.restore();
+}
+function nearestLowerLoadStations(cityName, excludeId){
+  const sts=(cityData?.[cityName]?.stations||[]).filter(s=>s.id!==excludeId);
+  return sts.sort((a,b)=>{
+    const aw=stationVehicleSplit(a).waiting, bw=stationVehicleSplit(b).waiting;
+    return (a.load + aw*2) - (b.load + bw*2);
+  });
 }
 function renderSimExtras(sim=calcSimulation()){
   const en=currentLang==='en';
@@ -3211,31 +3401,81 @@ function renderSimExtras(sim=calcSimulation()){
   if(flow){
     const balance = sim.manual.capacityHour - sim.manual.arrivalHour;
     const cards = [
-      {k:en?'Arrivals / h':'Saatlik geliş',v:fmtNum(sim.manual.arrivalHour,1),d:en?'Average customer demand':'Ortalama müşteri talebi',c:'var(--accent)'},
-      {k:en?'Capacity / h':'Saatlik kapasite',v:fmtNum(sim.manual.capacityHour,1),d:en?`${sim.manual.activeLanes} active lanes`:`${sim.manual.activeLanes} aktif hat`,c:'var(--success)'},
-      {k:en?'Flow balance':'Akış dengesi',v:(balance>=0?'+':'')+fmtNum(balance,1),d:en?'Capacity minus arrivals':'Kapasite - geliş farkı',c:balance>=0?'var(--success)':'var(--danger)'},
-      {k:en?'EV complexity':'EV karmaşıklığı',v:fmtNum(sim.manual.effectiveDuration,0)+(en?' min':' dk'),d:en?'Effective service time':'Efektif işlem süresi',c:'var(--info)'}
+      {k:en?'Average arrivals / h':'Ort. saatlik geliş',v:fmtNum(sim.manual.arrivalHour,1),d:en?'Daily demand divided by active shift':'Günlük talebin aktif vardiyaya dağılımı',c:'var(--accent)'},
+      {k:en?'Service capacity / h':'Servis kapasitesi / saat',v:fmtNum(sim.manual.capacityHour,1),d:en?`${sim.manual.activeLanes} active lanes × service speed`:`${sim.manual.activeLanes} aktif hat × işlem hızı`,c:'var(--success)'},
+      {k:en?'Capacity gap':'Kapasite farkı',v:(balance>=0?'+':'')+fmtNum(balance,1),d:en?'Positive means queue can shrink':'Pozitifse kuyruk eriyebilir',c:balance>=0?'var(--success)':'var(--danger)'},
+      {k:en?'Effective service time':'Efektif işlem süresi',v:fmtNum(sim.manual.effectiveDuration,0)+(en?' min':' dk'),d:en?'EV ratio and appointment effect included':'EV oranı ve randevu etkisi dahil',c:'var(--info)'}
     ];
     flow.innerHTML = cards.map(x=>`<div class="sim-flow-card"><div class="mlbl">${x.k}</div><div class="v" style="color:${x.c}">${x.v}</div><div class="d">${x.d}</div></div>`).join('');
   }
   const summary=simEl('simScenarioSummary');
   if(summary){
+    const gap=sim.manual.capacityHour-sim.manual.arrivalHour;
     summary.innerHTML = en
-      ? `<strong style="color:var(--text)">Scenario:</strong> ${fmtNum(sim.inp.volume)} vehicles/day, ${sim.inp.lanes} lanes, ${sim.inp.staff} staff, ${sim.inp.ev}% EV. Current utilisation is <strong style="color:${riskColor(sim.risk)}">${fmtNum(sim.utilPct)}%</strong>; AI recommends ${sim.optLanes} lanes and ${sim.optStaff} staff for a steadier flow.`
-      : `<strong style="color:var(--text)">Senaryo:</strong> günde ${fmtNum(sim.inp.volume)} araç, ${sim.inp.lanes} hat, ${sim.inp.staff} personel, %${sim.inp.ev} EV. Mevcut kapasite kullanımı <strong style="color:${riskColor(sim.risk)}">%${fmtNum(sim.utilPct)}</strong>; AI daha dengeli akış için ${sim.optLanes} hat ve ${sim.optStaff} personel öneriyor.`;
+      ? `<strong style="color:var(--text)">Logic:</strong> The model compares hourly arrivals with hourly inspection capacity. If arrivals exceed capacity, a queue forms and wait time rises. In this scenario, average gap is <strong style="color:${gap>=0?'var(--success)':'var(--danger)'}">${gap>=0?'+':''}${fmtNum(gap,1)} vehicles/hour</strong>; AI recommends ${sim.optLanes} lanes and ${sim.optStaff} staff.`
+      : `<strong style="color:var(--text)">Mantık:</strong> Model saatlik gelen araç sayısını saatlik muayene kapasitesiyle karşılaştırır. Gelen araç kapasiteyi aşarsa kuyruk oluşur ve bekleme yükselir. Bu senaryoda ortalama fark <strong style="color:${gap>=0?'var(--success)':'var(--danger)'}">${gap>=0?'+':''}${fmtNum(gap,1)} araç/saat</strong>; AI ${sim.optLanes} hat ve ${sim.optStaff} personel öneriyor.`;
+  }
+  const fs=simEl('simForecastSummary');
+  if(fs){
+    const cityName=getForecastCityName(), station=getForecastStation(cityName), data=forecastStationSeries(cityName,station);
+    const target=data[data.length-1] || null, first=data[0] || null;
+    if(station && target){
+      const r=forecastRisk(target.load,target.waiting,target.wait);
+      const col=forecastColorByRisk(r);
+      const diff=target.wait-(first?.wait||0);
+      fs.innerHTML = en ? `
+        <div class="sim-forecast-card main" style="--fc:${col}"><div class="k">Forecast focus</div><div class="v"><strong>${cityName}</strong> / ${station.id}<br>${simNum('simForecastHorizon',2)}h later: ${forecastRiskLabel(r)}</div><div class="d">Demand + queue forecast</div></div>
+        <div class="sim-forecast-card" style="--fc:var(--info)"><div class="k">New traffic</div><div class="v">+${fmtNum(target.cumArrivals,0)}</div><div class="d">expected arrivals</div></div>
+        <div class="sim-forecast-card" style="--fc:${col}"><div class="k">Occupancy</div><div class="v">${target.load}%</div><div class="d">Current: ${first?.load||0}%</div></div>
+        <div class="sim-forecast-card" style="--fc:var(--warn)"><div class="k">Waiting</div><div class="v">${fmtNum(target.waiting,0)}</div><div class="d">vehicles in queue</div></div>
+        <div class="sim-forecast-card" style="--fc:${diff>0?'var(--danger)':'var(--success)'}"><div class="k">Wait</div><div class="v">${target.wait} min</div><div class="d">${diff>=0?'+':''}${fmtNum(diff,0)} min vs. now</div></div>` : `
+        <div class="sim-forecast-card main" style="--fc:${col}"><div class="k">Tahmin odağı</div><div class="v"><strong>${cityName}</strong> / ${station.id}<br>${simNum('simForecastHorizon',2)} saat sonra: ${forecastRiskLabel(r)}</div><div class="d">Talep + kuyruk tahmini</div></div>
+        <div class="sim-forecast-card" style="--fc:var(--info)"><div class="k">Yeni trafik</div><div class="v">+${fmtNum(target.cumArrivals,0)}</div><div class="d">beklenen yeni araç</div></div>
+        <div class="sim-forecast-card" style="--fc:${col}"><div class="k">Doluluk</div><div class="v">%${target.load}</div><div class="d">Şu an: %${first?.load||0}</div></div>
+        <div class="sim-forecast-card" style="--fc:var(--warn)"><div class="k">Bekleyen</div><div class="v">${fmtNum(target.waiting,0)}</div><div class="d">sıradaki araç</div></div>
+        <div class="sim-forecast-card" style="--fc:${diff>0?'var(--danger)':'var(--success)'}"><div class="k">Bekleme</div><div class="v">${target.wait} dk</div><div class="d">şu ana göre ${diff>=0?'+':''}${fmtNum(diff,0)} dk</div></div>`;
+    }
+  }
+  const help=simEl('simChartHelp');
+  const cityName=getForecastCityName(), station=getForecastStation(cityName), data=forecastStationSeries(cityName,station);
+  const target=data[data.length-1] || null;
+  const nowPoint=data[0] || null;
+  if(help && station && target){
+    const diffWait=Math.round((target.wait||0)-(nowPoint?.wait||0));
+    const diffWaiting=Math.round((target.waiting||0)-(nowPoint?.waiting||0));
+    const items = en ? [
+      {h:'How to read it',p:'Red line is station occupancy; dashed green line is expected wait. Blue bars estimate expected new customer arrivals in each 15-minute slot.'},
+      {h:'Selected station',p:`${cityName} / ${station.id}: in ${simNum('simForecastHorizon',2)} hour(s), +${fmtNum(target.cumArrivals,0)} new vehicles are expected; occupancy ${target.load}%, wait ~${target.wait} min.`},
+      {h:'Operational signal',p:diffWaiting>0?`Queue may grow by ${diffWaiting} vehicles. Add staff or redirect appointments before the selected horizon.`:`Queue pressure decreases. Current staffing can handle this horizon.`}
+    ] : [
+      {h:'Nasıl okunur?',p:'Kırmızı çizgi istasyon doluluğunu; kesikli yeşil çizgi bekleme süresini gösterir. Mavi barlar her 15 dakikada beklenen yeni araç girişidir.'},
+      {h:'Seçilen istasyon',p:`${cityName} / ${station.id}: ${simNum('simForecastHorizon',2)} saat sonra +${fmtNum(target.cumArrivals,0)} yeni araç bekleniyor; doluluk %${target.load}, bekleme ~${target.wait} dk.`},
+      {h:'Operasyon sinyali',p:diffWaiting>0?`Kuyruk ${diffWaiting} araç artabilir. Seçilen saate gelmeden personel ekleme veya randevu yönlendirme önerilir.`:`Kuyruk baskısı azalıyor. Mevcut personel bu zaman aralığı için yeterli görünüyor.`}
+    ];
+    help.innerHTML=items.map(x=>`<div class="sim-help-card"><div class="h">${x.h}</div><div class="p">${x.p}</div></div>`).join('');
+  }
+  const tbl=simEl('simHourTable');
+  if(tbl && station && data.length){
+    const rows=data.filter((_,i)=>i%2===0 || i===data.length-1).slice(0,7);
+    tbl.innerHTML = `<div class="sim-hour-row head"><div>${en?'Time':'Saat'}</div><div>${en?'New arrivals':'Yeni geliş'}</div><div>${en?'Occupancy':'Doluluk'}</div><div>${en?'Waiting':'Bekleyen'}</div><div>${en?'Est. wait':'Bekleme'}</div></div>` +
+      rows.map(r=>`<div class="sim-hour-row"><div>${r.time}</div><div>+${fmtNum(r.arrivals,0)} ${en?'veh.':'araç'}</div><div class="${r.load>=85?'bad':'good'}">%${fmtNum(r.load,0)}</div><div>${fmtNum(r.waiting,0)} ${en?'veh.':'araç'}</div><div class="${r.wait>=25?'bad':'good'}">${fmtNum(r.wait,0)} ${en?'min':'dk'}</div></div>`).join('');
   }
   const list=simEl('simInsightList');
   if(list){
-    const needLane = Math.max(0, sim.optLanes - sim.inp.lanes);
-    const needStaff = Math.max(0, sim.optStaff - sim.inp.staff);
-    const queueMsg = sim.queueGrowth>0
-      ? (en?`Queue may grow by ~${sim.queueGrowth} vehicles during peak windows.`:`Pik saatlerde kuyruk yaklaşık ${sim.queueGrowth} araç büyüyebilir.`)
-      : (en?'No structural queue growth is expected in this scenario.':'Bu senaryoda yapısal kuyruk büyümesi beklenmiyor.');
-    const insights = [
-      {h:en?'Capacity action':'Kapasite aksiyonu',p:needLane||needStaff ? (en?`Open +${needLane} lanes and assign +${needStaff} staff for peak stability.`:`Pik denge için +${needLane} hat açıp +${needStaff} personel ekleyin.`) : (en?'Current lane/staff level is enough for the selected demand.':'Seçilen talep için mevcut hat/personel seviyesi yeterli görünüyor.')},
-      {h:en?'Queue pressure':'Kuyruk baskısı',p:queueMsg},
-      {h:en?'Appointment strategy':'Randevu stratejisi',p:en?`Raising appointment share above ${Math.max(65, sim.inp.appointment)}% reduces random arrivals and protects wait time.`:`Randevulu payını %${Math.max(65, sim.inp.appointment)} üzerine çıkarmak rastgele gelişleri azaltır ve beklemeyi korur.`},
-      {h:en?'EV lane planning':'EV hat planı',p:sim.inp.ev>30?(en?'EV share is high; keep at least one dedicated EV/BMS inspection lane active.':'EV oranı yüksek; en az bir özel EV/BMS muayene hattını aktif tutun.'):(en?'EV share is manageable under the current configuration.':'EV oranı mevcut yapı altında yönetilebilir seviyede.')}
+    const cityName2=getForecastCityName(), station2=getForecastStation(cityName2), fdata=forecastStationSeries(cityName2,station2);
+    const target=fdata[fdata.length-1] || {load:0,waiting:0,wait:0,risk:'low',time:'—'};
+    const simRisk=forecastRisk(target.load,target.waiting,target.wait);
+    const redir = station2 ? nearestLowerLoadStations(cityName2, station2.id).slice(0,2).map(s=>s.id).join(', ') : '';
+    const insights = en ? [
+      {h:'Selected horizon action',p:`Until ${target.time}, +${fmtNum(target.cumArrivals,0)} new vehicles are expected at ${station2?.id||'selected station'}; forecast occupancy ${target.load}% with ${fmtNum(target.waiting,0)} waiting vehicles.`},
+      {h:'Redirect recommendation',p:target.load>=85 && redir ? `Shift new appointments to ${redir}; it can reduce the queue before the peak.` : 'No hard redirect needed; keep appointments balanced.'},
+      {h:'Staff planning',p:target.wait>=25 ? 'Add one temporary inspection team for the selected time window.' : 'Current team level is acceptable for this forecast window.'},
+      {h:'Risk level',p:`Operational risk is ${forecastRiskLabel(simRisk)} for this station and horizon.`}
+    ] : [
+      {h:'Seçilen saat aksiyonu',p:`${target.time} saatine kadar ${station2?.id||'seçilen istasyon'} için +${fmtNum(target.cumArrivals,0)} yeni araç gelişi bekleniyor; doluluk %${target.load}, bekleyen araç ${fmtNum(target.waiting,0)} tahmin ediliyor.`},
+      {h:'Yönlendirme önerisi',p:target.load>=85 && redir ? `Yeni randevuları ${redir} istasyonlarına kaydırmak pik öncesi kuyruğu azaltabilir.` : 'Sert yönlendirme gerekmiyor; randevu akışı dengede tutulmalı.'},
+      {h:'Personel planı',p:target.wait>=25 ? 'Seçilen zaman penceresi için geçici bir muayene ekibi eklenmeli.' : 'Bu tahmin aralığı için mevcut ekip seviyesi kabul edilebilir.'},
+      {h:'Risk seviyesi',p:`Bu istasyon ve zaman ufku için operasyon riski: ${forecastRiskLabel(simRisk)}.`}
     ];
     list.innerHTML = insights.map((x,i)=>`<div class="sim-insight"><div class="n">${i+1}</div><div><div class="h">${x.h}</div><div class="p">${x.p}</div></div></div>`).join('');
   }
@@ -3553,7 +3793,7 @@ function openSuspectDetail(id) {
     </div></div>
     <div id="suspectAIBox"></div>
     <div class="mar">
-      <button id="suspectAIBtn" class="btn btn-a" onclick="analyzeSuspectWithAI('${s.id}')">${currentLang==='en'?'✦ Local AI Analysis':'✦ Local AI Analiz'}</button>
+      <button id="suspectAIBtn" class="btn btn-a" onclick="analyzeSuspectWithAI('${s.id}')">${currentLang==='en'?'✦ AI Analysis':'✦ AI Analiz'}</button>
       <button class="btn btn-e" onclick="toast('success',currentLang==='en'?'Report created':'Tutanak oluşturuldu');closeModal()">${currentLang==='en'?'Create Report':'Tutanak Oluştur'}</button>
       <button class="btn btn-r" onclick="closeModal()">${currentLang==='en'?'Close':'Kapat'}</button>
     </div>`);
@@ -3586,9 +3826,9 @@ function emissionFallbackAnalysis(s) {
 }
 
 function renderEmissionAnalysisBox(box, btn, result) {
-  const isLocalAI = result.source !== 'Yerel Analiz';
-  const srcLabel = isLocalAI ? 'Local AI' : (currentLang==='en'?'Local Analysis':'Yerel Analiz');
-  const srcColor = isLocalAI ? 'var(--accent4)' : 'var(--accent2)';
+  const isAI = result.source !== 'Yerel Analiz';
+  const srcLabel = isAI ? 'AI' : (currentLang==='en'?'Local Analysis':'Yerel Analiz');
+  const srcColor = isAI ? 'var(--accent4)' : 'var(--accent2)';
   box.innerHTML = `
     <div style="margin:10px 0;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:8px;overflow:hidden">
       <div style="background:rgba(251,113,133,0.12);padding:8px 12px;display:flex;justify-content:space-between;align-items:center">
@@ -3633,7 +3873,7 @@ async function analyzeSuspectWithAI(id) {
     <div style="margin:10px 0;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:8px;padding:12px">
       <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px">
         <div style="width:7px;height:7px;background:var(--accent4);border-radius:50%;animation:pdot 1.2s infinite ease-in-out"></div>
-        <span style="font-size:11px;font-weight:600;color:var(--accent4)">Local AI ${currentLang==='en'?'analysing emission anomaly…':'emisyon anomalisini analiz ediyor…'}</span>
+        <span style="font-size:11px;font-weight:600;color:var(--accent4)">AI ${currentLang==='en'?'analysing emission anomaly…':'emisyon anomalisini analiz ediyor…'}</span>
       </div>
       <div style="height:3px;background:var(--border);border-radius:2px;overflow:hidden">
         <div style="height:100%;background:linear-gradient(90deg,var(--accent4),var(--accent));animation:progress 1.8s ease-in-out infinite;width:50%"></div>
@@ -3646,9 +3886,9 @@ async function analyzeSuspectWithAI(id) {
 
   try {
     const resp = await fetch(
-      'data:application/json,{}',
+      `about:blank`,
       { method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ contents:[{parts:[{text:prompt}]}], generationConfig:{temperature:0.35,maxOutputLength:500},
+        body: JSON.stringify({ contents:[{parts:[{text:prompt}]}], generationConfig:{temperature:0.35,maxOutputTokens:500},
           safetySettings:[
             {category:'HARM_CATEGORY_HARASSMENT',threshold:'BLOCK_NONE'},
             {category:'HARM_CATEGORY_HATE_SPEECH',threshold:'BLOCK_NONE'},
@@ -3658,7 +3898,7 @@ async function analyzeSuspectWithAI(id) {
         })
       }
     );
-    if (!resp.ok) { const ed=await resp.json().catch(()=>({})); throw new Error('Local AI HTTP '+resp.status+': '+(ed?.error?.message||'')); }
+    if (!resp.ok) { const ed=await resp.json().catch(()=>({})); throw new Error('AI HTTP '+resp.status+': '+(ed?.error?.message||'')); }
     const data = await resp.json();
     const raw  = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
     if (!raw) throw new Error('empty');
@@ -3669,14 +3909,14 @@ async function analyzeSuspectWithAI(id) {
     const oneri  = get2('ÖNERİ:');
     const emsal  = get2('EMSAL:');
     if (!neden || !yontem) throw new Error('Parse failed');
-    renderEmissionAnalysisBox(box, btn, { neden, yontem, oneri:oneri||'—', emsal:emsal||'—', source:'Local AI' });
+    renderEmissionAnalysisBox(box, btn, { neden, yontem, oneri:oneri||'—', emsal:emsal||'—', source:'AI' });
 
   } catch(e) {
-    console.warn('Local AI failed for emission analysis:', e.message);
+    console.warn('AI failed for emission analysis:', e.message);
     // Use smart local fallback — always shows meaningful content
     const fallback = emissionFallbackAnalysis(s);
     renderEmissionAnalysisBox(box, btn, fallback);
-    toast('info', currentLang==='en' ? 'Local AI unavailable — local analysis used' : 'Local AI bağlanamadı — yerel analiz kullanıldı');
+    toast('info', currentLang==='en' ? 'AI unavailable — local analysis used' : 'AI bağlanamadı — yerel analiz kullanıldı');
   }
 }
 
@@ -4109,7 +4349,7 @@ function quickAnalyzeOverviewCity(){
   box.innerHTML = `<div style="background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:10px;padding:12px 14px">
     <div style="display:flex;align-items:center;gap:8px">
       <div style="width:8px;height:8px;background:var(--accent4);border-radius:50%;animation:pdot 1.2s infinite ease-in-out"></div>
-      <span style="font-size:11px;font-weight:700;color:var(--accent4)">${isEN?'Local AI analysing city load…':'Local AI şehir yoğunluğunu analiz ediyor…'}</span>
+      <span style="font-size:11px;font-weight:700;color:var(--accent4)">${isEN?'AI analysing city load…':'AI şehir yoğunluğunu analiz ediyor…'}</span>
     </div>
   </div>`;
 
@@ -4117,7 +4357,7 @@ function quickAnalyzeOverviewCity(){
     box.innerHTML = `<div style="background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:10px;overflow:hidden">
       <div style="background:rgba(251,113,133,0.12);padding:9px 13px;display:flex;justify-content:space-between;align-items:center;gap:8px">
         <span style="font-size:11px;font-weight:800;color:var(--accent4)">✦ ${isEN?'Quick City Analysis':'Hızlı Şehir Analizi'} — ${cityName}</span>
-        <span style="font-size:9px;font-weight:700;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 7px">LOCAL AI</span>
+        <span style="font-size:9px;font-weight:700;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 7px">AI</span>
       </div>
       <div style="padding:11px 13px">
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px">
@@ -4474,7 +4714,7 @@ function openCityView(cityName) {
   document.getElementById('cityAIBox').innerHTML = '';
   const aiBtn = document.getElementById('cityAIBtn');
   if (aiBtn) {
-    aiBtn.textContent = isEN ? '✦ Local AI City Analysis' : '✦ Local AI Şehir Analizi';
+    aiBtn.textContent = isEN ? '✦ AI City Analysis' : '✦ AI Şehir Analizi';
     aiBtn.disabled = false; aiBtn.style.opacity = '1';
   }
   const expBtn = document.querySelector('#cityDetailView .btn-e');
@@ -4506,7 +4746,7 @@ async function analyzeCityWithAI() {
   box.innerHTML = `<div style="background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:10px;padding:14px;margin-top:4px">
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
       <div style="width:7px;height:7px;background:var(--accent4);border-radius:50%;animation:pdot 1.2s infinite"></div>
-      <span style="font-size:11px;font-weight:600;color:var(--accent4)">Local AI ${currentCity} ${isEN?'analysing…':'analiz ediyor…'}</span>
+      <span style="font-size:11px;font-weight:600;color:var(--accent4)">AI ${currentCity} ${isEN?'analysing…':'analiz ediyor…'}</span>
     </div>
     <div style="height:3px;background:var(--border);border-radius:2px;overflow:hidden">
       <div style="height:100%;background:linear-gradient(90deg,var(--accent4),var(--accent));animation:progress 1.8s infinite;width:55%"></div>
@@ -4538,14 +4778,14 @@ RİSK: [Kritik risk]
 ETKİ: [Beklenen iyileşme]`;
 
   try {
-    const raw = await callAIEngine(prompt, 900, 0.4);
+    const raw = await callAI(prompt, 900, 0.4);
     const parsed = parseAIResponse(raw);
     if (!parsed || parsed.recommendations.length < 2) throw new Error('parse failed');
     box.innerHTML = `
       <div style="background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.2);border-radius:10px;overflow:hidden;margin-top:4px">
         <div style="background:rgba(251,113,133,0.12);padding:9px 14px;display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:11px;font-weight:700;color:var(--accent4)">✦ Local AI — ${currentCity} ${isEN?'City Analysis':'Şehir Analizi'}</span>
-          <span style="font-size:9px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 7px">LOCAL AI</span>
+          <span style="font-size:11px;font-weight:700;color:var(--accent4)">✦ AI — ${currentCity} ${isEN?'City Analysis':'Şehir Analizi'}</span>
+          <span style="font-size:9px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 7px">AI</span>
         </div>
         <div style="padding:12px 14px">
           <div style="font-size:11px;color:var(--text2);line-height:1.6;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(251,113,133,0.1)">${parsed.summary}</div>
@@ -4569,8 +4809,8 @@ ETKİ: [Beklenen iyileşme]`;
     btn.textContent = isEN ? '✦ Re-analyse' : '✦ Yeniden Analiz';
     btn.disabled = false; btn.style.opacity = '1';
   } catch(e) {
-    box.innerHTML = `<div style="margin:8px 0;padding:9px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:7px;font-size:11px;color:var(--danger)">${isEN?'Local AI unavailable. Try again.':'Local AI bağlanamadı. Tekrar deneyin.'}</div>`;
-    btn.textContent = isEN ? '✦ Local AI City Analysis' : '✦ Local AI Şehir Analizi';
+    box.innerHTML = `<div style="margin:8px 0;padding:9px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:7px;font-size:11px;color:var(--danger)">${isEN?'AI unavailable. Try again.':'AI bağlanamadı. Tekrar deneyin.'}</div>`;
+    btn.textContent = isEN ? '✦ AI City Analysis' : '✦ AI Şehir Analizi';
     btn.disabled = false; btn.style.opacity = '1';
   }
 }
@@ -5736,48 +5976,6 @@ function exportCityReport() {
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootEVAdvancedV15); else bootEVAdvancedV15();
-})();
-</script>
-
-
-<script id="robust-login-fallback-v2">
-(function(){
-  var selected = 'admin';
-  function q(id){ return document.getElementById(id); }
-  function showErr(msg){ var e=q('loginError'); if(e){ e.textContent=msg; e.style.display='block'; } }
-  window.switchLoginTab = function(tab){
-    selected = tab || 'admin';
-    var a=q('tabAdmin'), u=q('tabUser'), sub=q('loginSubtitle'), hint=q('loginHint'), user=q('loginUser'), pass=q('loginPass'), err=q('loginError');
-    if(a){ a.style.background = selected==='admin'?'rgba(229,62,62,0.12)':'transparent'; a.style.border = selected==='admin'?'1px solid rgba(229,62,62,0.3)':'1px solid transparent'; a.style.color = selected==='admin'?'#e53e3e':'#64748b'; }
-    if(u){ u.style.background = selected==='user'?'rgba(252,129,129,0.12)':'transparent'; u.style.border = selected==='user'?'1px solid rgba(252,129,129,0.3)':'1px solid transparent'; u.style.color = selected==='user'?'#fc8181':'#64748b'; }
-    if(sub) sub.textContent = selected==='admin' ? 'Yönetici paneline erişmek için admin bilgilerini girin.' : 'Araç muayene istasyonu önerileri için kullanıcı olarak giriş yapın.';
-    if(hint) hint.innerHTML = selected==='admin' ? 'Admin: <span style="color:#475569">admin / admin123</span>' : 'Kullanıcı: <span style="color:#475569">user / user123</span>';
-    if(user) user.value=''; if(pass) pass.value=''; if(err) err.style.display='none';
-  };
-  window.doLogin = function(){
-    var user=(q('loginUser')&&q('loginUser').value||'').trim().toLowerCase();
-    var pass=(q('loginPass')&&q('loginPass').value||'');
-    var btn=q('loginBtn'); if(btn){ btn.textContent='Giriş yapılıyor…'; btn.style.opacity='.75'; }
-    setTimeout(function(){
-      var okAdmin = selected==='admin' && user==='admin' && pass==='admin123';
-      var okUser = selected==='user' && user==='user' && pass==='user123';
-      if(!okAdmin && !okUser){ if(btn){btn.textContent='Giriş Yap →'; btn.style.opacity='1';} showErr('Kullanıcı adı veya şifre hatalı.'); return; }
-      var login=q('loginScreen'), admin=q('adminApp'), userPage=q('userPage');
-      if(login){ login.style.display='none'; login.style.opacity='0'; }
-      if(okAdmin){ if(admin) admin.style.display='block'; if(userPage) userPage.style.display='none'; try{ if(typeof init==='function') init(); }catch(e){ console.warn('Dashboard init skipped:', e); } }
-      if(okUser){ if(userPage) userPage.style.display='block'; if(admin) admin.style.display='none'; try{ if(typeof initUserPage==='function') initUserPage(); }catch(e){ console.warn('User page init skipped:', e); } }
-      if(btn){btn.textContent='Giriş Yap →'; btn.style.opacity='1';}
-    }, 250);
-  };
-  function bind(){
-    var a=q('tabAdmin'), u=q('tabUser'), b=q('loginBtn'), user=q('loginUser'), pass=q('loginPass');
-    if(a) a.addEventListener('click', function(ev){ ev.preventDefault(); window.switchLoginTab('admin'); });
-    if(u) u.addEventListener('click', function(ev){ ev.preventDefault(); window.switchLoginTab('user'); });
-    if(b) b.addEventListener('click', function(ev){ ev.preventDefault(); window.doLogin(); });
-    [user, pass].forEach(function(inp){ if(inp) inp.addEventListener('keydown', function(ev){ if(ev.key==='Enter') window.doLogin(); }); });
-    window.switchLoginTab('admin');
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bind); else bind();
 })();
 </script>
 
